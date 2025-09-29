@@ -13,7 +13,7 @@ export interface TranslationData {
   providedIn: 'root'
 })
 export class LanguageService {
-  private currentLanguageSubject = new BehaviorSubject<string>('ar');
+  private currentLanguageSubject = new BehaviorSubject<string>('fr');
   public currentLanguage$ = this.currentLanguageSubject.asObservable();
 
   private translations: TranslationData = {
