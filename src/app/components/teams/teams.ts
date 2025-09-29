@@ -209,7 +209,7 @@ export class TeamsComponent implements OnInit {
       ar: [
         {
           id: 1,
-          name: 'أحمد العمري',
+          name: 'أحمدعمري',
           position: 'مدير الإنتاج',
           experience: '10+ سنوات خبرة',
           bio: 'محترف في الإعلام والإنتاج مع خبرة واسعة في إدارة المشاريع الإبداعية وتطوير المحتوى المؤثر.',

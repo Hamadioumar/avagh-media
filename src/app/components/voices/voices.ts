@@ -175,7 +175,6 @@ export class VoicesComponent implements OnInit {
           avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
           rating: 5,
           project: 'حملة التسويق الرقمي 2025',
-          featured: true
         },
         {
           id: 2,
@@ -218,7 +217,6 @@ export class VoicesComponent implements OnInit {
           avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
           rating: 5,
           project: 'Digital Marketing Campaign 2025',
-          featured: true
         },
         {
           id: 2,
@@ -261,7 +259,6 @@ export class VoicesComponent implements OnInit {
           avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
           rating: 5,
           project: 'Campagne Marketing Digital 2025',
-          featured: true
         },
         {
           id: 2,
