@@ -1,0 +1,36 @@
+    <header [class.scrolled]="isScrolled" class="header">
+      <nav class="nav container">
+        <div class="nav-brand">
+          <h2 class="brand-text">AVAGH MEDIA</h2>
+        </div>
+        
+        <div class="nav-menu" [class.active]="menuOpen">
+          <a href="#about" class="nav-link" (click)="closeMenu()">{{ translate('nav.about') }}</a>
+          <a href="#services" class="nav-link" (click)="closeMenu()">{{ translate('nav.services') }}</a>
+          <a href="#news" class="nav-link" (click)="closeMenu()">{{ translate('nav.news') }}</a>
+          <a href="#partners" class="nav-link" (click)="closeMenu()">{{ translate('nav.partners') }}</a>
+          <a href="#voices" class="nav-link" (click)="closeMenu()">{{ translate('nav.voices') }}</a>
+          <a href="#team" class="nav-link" (click)="closeMenu()">{{ translate('nav.team') }}</a>
+          <a href="#contact" class="nav-link" (click)="closeMenu()">{{ translate('nav.contact') }}</a>
+        </div>
+        
+        <div class="nav-actions">
+          <div class="language-switcher">
+            <button 
+              *ngFor="let lang of languages" 
+              class="lang-btn"
+              [class.active]="currentLanguage === lang.code"
+              (click)="switchLanguage(lang.code)"
+            >
+              {{ lang.label }}
+            </button>
+          </div>
+          
+          <button class="nav-toggle" (click)="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>

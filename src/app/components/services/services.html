@@ -1,0 +1,28 @@
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">{{ translate('services.title') }}</h2>
+          <p class="section-subtitle">
+            {{ translate('services.subtitle') }}
+          </p>
+        </div>
+        
+        <div class="services-grid">
+          <div class="service-card" *ngFor="let service of getLocalizedServices(); trackBy: trackByService">
+            <div class="card-header">
+              <div class="icon-wrapper" [style.background]="service.gradient">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="icon">
+                  <path [attr.d]="service.icon"/>
+                </svg>
+              </div>
+              <h3>{{ service.title }}</h3>
+            </div>
+            <p class="service-description">{{ service.description }}</p>
+            <ul class="service-features">
+              <li *ngFor="let feature of service.features">{{ feature }}</li>
+            </ul>
+            <button class="service-btn">{{ getLearnMoreText() }}</button>
+          </div>
+        </div>
+      </div>
+    </section>

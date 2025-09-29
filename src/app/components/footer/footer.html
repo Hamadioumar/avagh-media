@@ -1,0 +1,37 @@
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3 class="brand-text">AVAGH MEDIA</h3>
+            <p class="brand-description">{{ getBrandDescription() }}</p>
+            <div class="social-links">
+              <a href="#" class="social-link" *ngFor="let social of socialLinks">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path [attr.d]="social.icon"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <div class="link-column" *ngFor="let column of getLocalizedLinkColumns()">
+              <h4 class="column-title">{{ column.title }}</h4>
+              <ul class="link-list">
+                <li *ngFor="let link of column.links">
+                  <a [href]="link.url" class="footer-link">{{ link.text }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <div class="copyright">
+            <p>&copy; {{ currentYear }} AVAGH MEDIA. {{ getCopyright() }}</p>
+          </div>
+          <div class="footer-legal">
+            <a href="#" class="legal-link" *ngFor="let legal of getLegalLinks()">{{ legal }}</a>
+          </div>
+        </div>
+      </div>
+    </footer>

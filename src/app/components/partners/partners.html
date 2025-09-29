@@ -1,0 +1,31 @@
+    <section id="partners" class="partners">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">{{ getSectionTitle() }}</h2>
+          <p class="section-subtitle">{{ getSectionSubtitle() }}</p>
+        </div>
+        
+        <div class="partners-grid">
+          <div class="partner-card" *ngFor="let partner of partners; trackBy: trackByPartner">
+            <div class="partner-logo">
+              <img [src]="partner.logo" [alt]="partner.name" />
+            </div>
+            <div class="partner-info">
+              <h3 class="partner-name">{{ partner.name }}</h3>
+              <p class="partner-description">{{ getPartnerDescription(partner.id) }}</p>
+              <div class="partner-tags">
+                <span class="tag" *ngFor="let tag of getPartnerTags(partner.id)">{{ tag }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="partners-logos">
+          <div class="logos-scroll">
+            <div class="logo-item" *ngFor="let logo of partnerLogos">
+              <img [src]="logo.url" [alt]="logo.name" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

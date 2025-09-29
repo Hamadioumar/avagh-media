@@ -1,0 +1,33 @@
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2 class="about-title">{{ translate('about.title') }}</h2>
+            <p class="about-description">
+              {{ translate('about.description') }}
+            </p>
+            
+            <div class="stats-grid">
+              <div class="stat-item" *ngFor="let stat of getLocalizedStats()">
+                <div class="stat-number">{{ stat.number }}</div>
+                <div class="stat-label">{{ stat.label }}</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about-visual">
+            <div class="video-placeholder">
+              <div class="play-button">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <div class="video-overlay">
+                <h3>{{ getVideoTitle() }}</h3>
+                <p>{{ getVideoSubtitle() }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

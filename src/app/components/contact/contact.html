@@ -1,0 +1,120 @@
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-content">
+          <div class="contact-info">
+            <h2 class="contact-title">{{ getContactTitle() }}</h2>
+            <p class="contact-description">{{ getContactDescription() }}</p>
+            
+            <div class="contact-details">
+              <div class="contact-item" *ngFor="let item of getLocalizedContactItems()">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path [attr.d]="item.icon"/>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <h4>{{ item.title }}</h4>
+                  <p>{{ item.value }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">{{ getFieldLabel('firstName') }} *</label>
+                <input 
+                  type="text" 
+                  id="firstName" 
+                  name="firstName"
+                  [(ngModel)]="formData.firstName"
+                  required
+                  #firstName="ngModel"
+                  class="form-input"
+                  [class.error]="firstName.invalid && firstName.touched"
+                />
+              </div>
+              <div class="form-group">
+                <label for="lastName">{{ getFieldLabel('lastName') }} *</label>
+                <input 
+                  type="text" 
+                  id="lastName" 
+                  name="lastName"
+                  [(ngModel)]="formData.lastName"
+                  required
+                  #lastName="ngModel"
+                  class="form-input"
+                  [class.error]="lastName.invalid && lastName.touched"
+                />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">{{ getFieldLabel('email') }} *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                [(ngModel)]="formData.email"
+                required
+                email
+                #email="ngModel"
+                class="form-input"
+                [class.error]="email.invalid && email.touched"
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">{{ getFieldLabel('phone') }}</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone"
+                [(ngModel)]="formData.phone"
+                class="form-input"
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="service">{{ getFieldLabel('service') }}</label>
+              <select 
+                id="service" 
+                name="service"
+                [(ngModel)]="formData.service"
+                class="form-input"
+              >
+                <option value="">{{ getSelectPlaceholder() }}</option>
+                <option *ngFor="let option of getServiceOptions()" [value]="option.value">
+                  {{ option.label }}
+                </option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">{{ getFieldLabel('message') }} *</label>
+              <textarea 
+                id="message" 
+                name="message"
+                [(ngModel)]="formData.message"
+                required
+                #message="ngModel"
+                class="form-textarea"
+                [class.error]="message.invalid && message.touched"
+                rows="5"
+                [placeholder]="getMessagePlaceholder()"
+              ></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              class="submit-btn"
+              [disabled]="contactForm.invalid || isSubmitting"
+            >
+              <span *ngIf="!isSubmitting">{{ getSubmitText() }}</span>
+              <span *ngIf="isSubmitting">{{ getSubmittingText() }}</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
